@@ -383,3 +383,11 @@ body {
         justify-content: center;
     }
 }
+
+@font-face {
+    font-family: 'Bootzy';
+    src: url('./BootzyTM.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
