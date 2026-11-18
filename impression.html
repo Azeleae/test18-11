@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-fr="Impression - Portfolio Éléa" data-en="Print - Éléa's Portfolio">Impression - Portfolio Éléa</title>
+<link rel="icon" type="image/png" href="src/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@700;800;900&family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="impression.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar">
+        <div class="nav-icons">
+            <a href="index.html" class="home-icon" aria-label="Accueil" data-aria-fr="Accueil" data-aria-en="Home">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                </svg>
+            </a>
+
+            <a href="portfolio.html" class="home-icon" aria-label="Portfolio" data-aria-fr="Portfolio" data-aria-en="Portfolio">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M4 11h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm10 0h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zM4 21h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm10 0h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1z"/>
+                </svg>
+            </a>
+        </div>
+
+        <nav class="nav-links">
+            <a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a>
+            <span>•</span>
+            <a href="presentation.html" data-fr="Présentation" data-en="About">Présentation</a>
+        </nav>
+
+        <div class="nav-controls">
+            <button id="lang-toggle" class="control-btn" aria-label="Changer de langue" data-aria-fr="Changer de langue" data-aria-en="Switch language">
+                <span id="lang-fr" class="lang-option active">FR</span>
+                <span class="lang-divider">|</span>
+                <span id="lang-en" class="lang-option">EN</span>
+            </button>
+
+            <button id="theme-toggle" class="control-btn theme-icon" aria-label="Changer de thème" data-aria-fr="Changer de thème" data-aria-en="Switch theme">⏾</button>
+        </div>
+    </header>
+
+    <!-- Titre déroulant -->
+    <div class="edition-title-container">
+        <div class="dropdown-header" id="dropdownToggle">
+            <h1 class="page-title" data-fr="impression" data-en="print">impression</h1>
+            <span class="arrow-icon">▼</span>
+        </div>
+
+        <ul class="dropdown-menu" id="dropdownMenu">
+            <li><a href="#print" data-fr="Print" data-en="Print">Print</a></li>
+            <li><a href="#flyers" data-fr="Flyers" data-en="Flyers">Flyers</a></li>
+        </ul>
+    </div>
+
+    <main class="impressions-content">
+        <!-- SECTION PRINT -->
+        <section class="category-section" id="print">
+            <div class="print-header-container">
+                <h2 class="category-title" data-fr="Print" data-en="Print">Print</h2>
+                <p class="click-instruction" data-fr="clique sur l'image pour découvrir le brief" data-en="click on the image to discover the brief">clique sur l'image pour découvrir le brief</p>
+            </div>
+
+            <div class="gallery-grid">
+                <!-- Poster 1 : Cocktail Créatif -->
+                <div class="flip-card" tabindex="0" role="button" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="src/poster1.png" alt="Affiche Cocktail Créatif" onerror="this.classList.add('img-error')">
+                        </div>
+
+                        <div class="flip-card-back">
+                            <h3 class="flip-card-title" data-fr="Cocktail Créatif" data-en="Creative Cocktail">Cocktail Créatif</h3>
+                            <p class="flip-card-text"
+                               data-fr="Dans le cadre d’un projet, nous devions concevoir une affiche intégrant un jeu typographique. J’ai choisi de représenter un festival dédié à la création et à la dégustation de cocktails originaux. Pour cette affiche, j’ai travaillé autour du mouvement du liquide afin d’intégrer le texte directement dans la boisson. Les couleurs fruitées viennent renforcer l’univers frais et coloré des cocktails."
+                               data-en="As part of a project, we had to design a poster incorporating typographic play. I chose to represent a festival dedicated to creating and tasting original cocktails. For this poster, I worked around the movement of liquid to integrate the text directly into the drink. Fruity colors enhance the fresh and colorful world of cocktails.">
+                                Dans le cadre d’un projet, nous devions concevoir une affiche intégrant un jeu typographique. J’ai choisi de représenter un festival dédié à la création et à la dégustation de cocktails originaux. Pour cette affiche, j’ai travaillé autour du mouvement du liquide afin d’intégrer le texte directement dans la boisson. Les couleurs fruitées viennent renforcer l’univers frais et coloré des cocktails.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Poster 2 : Matcha Smiski -->
+                <div class="flip-card" tabindex="0" role="button" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="src/poster2.png" alt="Affiche Matcha Smiski" onerror="this.classList.add('img-error')">
+                        </div>
+
+                        <div class="flip-card-back">
+                            <h3 class="flip-card-title" data-fr="Matcha Smiski" data-en="Matcha Smiski">Matcha Smiski</h3>
+                            <p class="flip-card-text"
+                               data-fr="J’ai imaginé cette affiche pour une amie passionnée de Smiski, qui souhaitait décorer son mur avec une création personnalisée. Je me suis inspirée de ses goûts et de son univers, notamment de son intérêt pour le matcha, afin de créer une composition autour de différentes nuances de vert."
+                               data-en="I designed this poster for a friend who is passionate about Smiski and wanted to decorate her wall with a custom creation. I drew inspiration from her tastes and universe, particularly her love for matcha, to create a composition around different shades of green.">
+                                J’ai imaginé cette affiche pour une amie passionnée de Smiski, qui souhaitait décorer son mur avec une création personnalisée. Je me suis inspirée de ses goûts et de son univers, notamment de son intérêt pour le matcha, afin de créer une composition autour de différentes nuances de vert.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Poster 3 : Happy Hour -->
+                <div class="flip-card" tabindex="0" role="button" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="src/poster3.png" alt="Affiche Happy Hour" onerror="this.classList.add('img-error')">
+                        </div>
+
+                        <div class="flip-card-back">
+                            <h3 class="flip-card-title" data-fr="Happy Hour" data-en="Happy Hour">Happy Hour</h3>
+                            <p class="flip-card-text"
+                               data-fr="Cette affiche a été réalisée en duo avec un ami, @romain.zip, pour le café SLO, situé à la Croix-Rousse. Nous nous sommes rendus sur place afin de travailler directement dans le lieu et de nous inspirer de sa direction artistique, notamment des tableaux et affiches déjà présents. Une fois finalisée et imprimée, nous avons offert l’affiche au café. J’ai principalement réalisé l’illustration ainsi que participé à la mise en page."
+                               data-en="This poster was created as a duo with a friend, @romain.zip, for the SLO café in Croix-Rousse. We went on-site to work directly in the space and draw inspiration from its art direction, including existing paintings and posters. Once finalized and printed, we gifted the poster to the café. I mainly created the illustration and participated in the layout.">
+                                Cette affiche a été réalisée en duo avec un ami, @romain.zip, pour le café SLO, situé à la Croix-Rousse. Nous nous sommes rendus sur place afin de travailler directement dans le lieu et de nous inspirer de sa direction artistique, notamment des tableaux et affiches déjà présents. Une fois finalisée et imprimée, nous avons offert l’affiche au café. J’ai principalement réalisé l’illustration ainsi que participé à la mise en page.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Poster 4 : Le Défi de l'eau -->
+                <div class="flip-card" tabindex="0" role="button" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="src/poster4.png" alt="Affiche Le Défi de l'eau" onerror="this.classList.add('img-error')">
+                        </div>
+
+                        <div class="flip-card-back">
+                            <h3 class="flip-card-title" data-fr="Le Défi de l’eau" data-en="The Water Challenge">Le Défi de l’eau</h3>
+                            <p class="flip-card-text"
+                               data-fr="Cette affiche a été conçue pour l’événement « Le Défi de l’eau » organisé par l’UNICEF. Celui-ci sensibilise aux enjeux de la préservation de l’eau et de l’accès à cette ressource essentielle, notamment face aux conséquences du changement climatique. L’objectif était de traduire visuellement ces enjeux à travers une affiche destinée à l’événement."
+                               data-en="This poster was designed for the 'Water Challenge' event organized by UNICEF. It raises awareness about water conservation issues and access to this essential resource, particularly in the face of climate change. The goal was to visually translate these challenges through a poster created for the event.">
+                                Cette affiche a été conçue pour l’événement « Le Défi de l’eau » organisé par l’UNICEF. Celui-ci sensibilise aux enjeux de la préservation de l’eau et de l’accès à cette ressource essentielle, notamment face aux conséquences du changement climatique. L’objectif était de traduire visuellement ces enjeux à travers une affiche destinée à l’événement.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Poster 5 : Flowers -->
+                <div class="flip-card" tabindex="0" role="button" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="src/poster5.png" alt="Affiche Flowers" onerror="this.classList.add('img-error')">
+                        </div>
+
+                        <div class="flip-card-back">
+                            <h3 class="flip-card-title" data-fr="Flowers" data-en="Flowers">Flowers</h3>
+                            <p class="flip-card-text"
+                               data-fr="Pour cette création, j’ai souhaité expérimenter autour d’un effet miroir et de reflets aquatiques, en m’inspirant de l’aspect de la rosée du matin. L’idée était de retranscrire une atmosphère douce et poétique, en jouant avec les reflets et la lumière."
+                               data-en="For this creation, I wanted to experiment with a mirror effect and aquatic reflections, drawing inspiration from morning dew. The idea was to convey a soft and poetic atmosphere by playing with reflections and light.">
+                                Pour cette création, j’ai souhaité expérimenter autour d’un effet miroir et de reflets aquatiques, en m’inspirant de l’aspect de la rosée du matin. L’idée était de retranscrire une atmosphère douce et poétique, en jouant avec les reflets et la lumière.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Poster 6 : Brume -->
+                <div class="flip-card" tabindex="0" role="button" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="src/poster6.png" alt="Affiche Brume" onerror="this.classList.add('img-error')">
+                        </div>
+
+                        <div class="flip-card-back">
+                            <h3 class="flip-card-title" data-fr="Brume" data-en="Brume">Brume</h3>
+                            <p class="flip-card-text"
+                               data-fr="J’ai créé cette affiche pour mettre à l’honneur mon petit chat Brume, que je venais tout juste de recueillir. Un projet personnel réalisé pour immortaliser son arrivée dans ma vie."
+                               data-en="I created this poster to celebrate my little cat Brume, whom I had just adopted. A personal project made to immortalize his arrival in my life.">
+                                J’ai créé cette affiche pour mettre à l’honneur mon petit chat Brume, que je venais tout juste de recueillir. Un projet personnel réalisé pour immortaliser son arrivée dans ma vie.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Poster 7 -->
+                <div class="flip-card" tabindex="0" role="button" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="src/poster7.png" alt="Poster 7" onerror="this.classList.add('img-error')">
+                        </div>
+
+                        <div class="flip-card-back">
+                            <h3 class="flip-card-title" data-fr="Projet 7" data-en="Project 7">Projet 7</h3>
+                            <p class="flip-card-text"
+                               data-fr="Description à venir pour cette affiche."
+                               data-en="Description coming soon for this poster.">
+                                Description à venir pour cette affiche.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Poster 8 -->
+                <div class="flip-card" tabindex="0" role="button" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="src/poster8.png" alt="Poster 8" onerror="this.classList.add('img-error')">
+                        </div>
+
+                        <div class="flip-card-back">
+                            <h3 class="flip-card-title" data-fr="Projet 8" data-en="Project 8">Projet 8</h3>
+                            <p class="flip-card-text"
+                               data-fr="Description à venir pour cette affiche."
+                               data-en="Description coming soon for this poster.">
+                                Description à venir pour cette affiche.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="project-divider">
+
+        <!-- SECTION FLYERS -->
+        <section class="category-section last-section" id="flyers">
+            <h2 class="category-title" data-fr="Flyers" data-en="Flyers">Flyers</h2>
+
+            <div class="project-section">
+                <div class="project-layout">
+                    <div class="col-left">
+                        <h3 class="project-title" data-fr="Faut-il être fou pour créer ?" data-en="Do you have to be crazy to create?">Faut-il être fou pour créer ?</h3>
+
+                        <p class="project-description"
+                           data-fr="Dans le cadre du projet Philomag, j’ai conçu un flyer A5 recto-verso autour de la question philosophique « Faut-il être fou pour créer ? ». J’ai joué sur le contraste entre un univers classique et une explosion de couleurs pour symboliser l’opposition entre les normes sociales et la liberté créative. L’objectif était de questionner les idées reçues sur la créativité à travers une composition graphique expressive et percutante."
+                           data-en="As part of the Philomag project, I designed a double-sided A5 flyer around the philosophical question, “Do you have to be crazy to create?”. I played on the contrast between a classic world and an explosion of colours to represent the opposition between social norms and creative freedom. The aim was to challenge preconceived ideas about creativity through an expressive and striking graphic composition.">
+                            Dans le cadre du projet Philomag, j’ai conçu un flyer A5 recto-verso autour de la question philosophique « Faut-il être fou pour créer ? ». J’ai joué sur le contraste entre un univers classique et une explosion de couleurs pour symboliser l’opposition entre les normes sociales et la liberté créative. L’objectif était de questionner les idées reçues sur la créativité à travers une composition graphique expressive et percutante.
+                        </p>
+
+                        <div class="stars-left-container">
+                            <img src="src/etoiles_combinees.png" alt="Étoiles" class="star-gif-combined">
+                        </div>
+                    </div>
+
+                    <div class="col-center transparent-bg-cover">
+                        <img src="src/flyer1.png" alt="Flyer Philomag" class="magazine-cover flyer-large-img" onerror="this.classList.add('img-error')">
+                    </div>
+
+                    <div class="col-right">
+                        <div class="star-top">
+                            <img src="src/etoile_contour.png" alt="Étoile contour" class="star-gif-top">
+                        </div>
+
+                        <div class="project-info">
+                            <div class="software-tags">
+                                <img src="src/adobe_rose.png" alt="Logiciels Adobe" class="adobe-icons-img">
+                            </div>
+
+                            <span class="project-type" data-fr="Projet scolaire" data-en="School project">Projet scolaire</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // --- Menu déroulant ---
+        const dropdownToggle = document.getElementById('dropdownToggle');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+
+        dropdownToggle.addEventListener('click', () => {
+            dropdownToggle.classList.toggle('active');
+            dropdownMenu.classList.toggle('open');
+        });
+
+        dropdownMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                dropdownToggle.classList.remove('active');
+                dropdownMenu.classList.remove('open');
+            });
+        });
+
+        // --- Retournement des posters ---
+        const flipCards = document.querySelectorAll('.flip-card');
+
+        flipCards.forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('flipped');
+
+                const isFlipped = card.classList.contains('flipped');
+                card.setAttribute('aria-pressed', isFlipped ? 'true' : 'false');
+            });
+
+            card.addEventListener('keydown', event => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    card.click();
+                }
+            });
+        });
+
+        // --- Langue et thème ---
+        const langToggleBtn = document.getElementById('lang-toggle');
+        const langFr = document.getElementById('lang-fr');
+        const langEn = document.getElementById('lang-en');
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const translatableElements = document.querySelectorAll('[data-fr]');
+        const ariaTranslatableElements = document.querySelectorAll('[data-aria-fr]');
+
+        function applyLanguage(lang) {
+            langEn.classList.toggle('active', lang === 'en');
+            langFr.classList.toggle('active', lang === 'fr');
+
+            translatableElements.forEach(el => {
+                const targetText = el.getAttribute(`data-${lang}`);
+                if(targetText) {
+                    if (el.tagName.toLowerCase() === 'title') {
+                        document.title = targetText;
+                    } else {
+                        el.textContent = targetText;
+                    }
+                }
+            });
+
+            ariaTranslatableElements.forEach(el => {
+                const ariaText = el.getAttribute(`data-aria-${lang}`);
+                if (ariaText) el.setAttribute('aria-label', ariaText);
+            });
+
+            document.documentElement.lang = lang;
+        }
+
+        function applyTheme(theme) {
+            const isDark = theme === 'dark';
+
+            document.body.classList.toggle('dark-mode', isDark);
+            themeToggleBtn.textContent = isDark ? '☀︎' : '⏾';
+
+            document.querySelectorAll('.star-gif-combined').forEach(img => {
+                img.src = 'src/etoiles_combinees.png';
+            });
+
+            document.querySelectorAll('.star-gif-top').forEach(img => {
+                img.src = 'src/etoile_contour.png';
+            });
+
+            document.querySelectorAll('.adobe-icons-img').forEach(img => {
+                img.src = isDark ? 'src/adobe_jaune.png' : 'src/adobe_rose.png';
+            });
+        }
+
+        let currentLang = localStorage.getItem('site_lang') || 'fr';
+        let currentTheme = localStorage.getItem('site_theme') || 'light';
+
+        applyLanguage(currentLang);
+        applyTheme(currentTheme);
+
+        langToggleBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'fr' ? 'en' : 'fr';
+            localStorage.setItem('site_lang', currentLang);
+            applyLanguage(currentLang);
+        });
+
+        themeToggleBtn.addEventListener('click', () => {
+            currentTheme = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
+            localStorage.setItem('site_theme', currentTheme);
+            applyTheme(currentTheme);
+        });
+    </script>
+</body>
+</html>
