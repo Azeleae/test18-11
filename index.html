@@ -21,14 +21,12 @@
             </svg>
         </a>
 
-        <!-- Navigation Desktop -->
-        <nav class="nav-links" aria-label="Navigation principale">
+        <nav class="nav-links">
             <a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a>
             <span>•</span>
             <a href="presentation.html" data-fr="Présentation" data-en="About">Présentation</a>
         </nav>
 
-        <!-- Contrôles Desktop -->
         <div class="nav-controls">
             <button id="lang-toggle" class="control-btn" aria-label="Changer de langue">
                 <span id="lang-fr" class="lang-option active">FR</span>
@@ -37,42 +35,7 @@
             </button>
             <button id="theme-toggle" class="control-btn theme-icon" aria-label="Changer de thème">⏾</button>
         </div>
-
-        <!-- Bouton Dépliant Mobile (regroupe Présentation, Contact, Langue & Couleur) -->
-        <button id="mobile-menu-toggle" class="mobile-menu-btn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-drawer">
-            <span class="burger-line"></span>
-            <span class="burger-line"></span>
-            <span class="burger-line"></span>
-        </button>
     </header>
-
-    <!-- Dépliant Mobile -->
-    <aside id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
-        <div class="mobile-drawer-inner">
-            <nav class="mobile-nav-links" aria-label="Navigation mobile">
-                <a href="presentation.html" class="mobile-drawer-link" data-fr="Présentation" data-en="About">Présentation</a>
-                <a href="contact.html" class="mobile-drawer-link" data-fr="Contact" data-en="Contact">Contact</a>
-            </nav>
-
-            <div class="mobile-drawer-divider"></div>
-
-            <div class="mobile-drawer-actions">
-                <button id="mobile-lang-toggle" class="control-btn mobile-action-btn" aria-label="Changer de langue">
-                    <span class="mobile-action-label" data-fr="Langue" data-en="Language">Langue</span>
-                    <span class="mobile-pill-group">
-                        <span id="mobile-lang-fr" class="lang-option active">FR</span>
-                        <span class="lang-divider">|</span>
-                        <span id="mobile-lang-en" class="lang-option">EN</span>
-                    </span>
-                </button>
-
-                <button id="mobile-theme-toggle" class="control-btn mobile-action-btn" aria-label="Changer de thème">
-                    <span class="mobile-action-label" data-fr="Couleur" data-en="Theme">Couleur</span>
-                    <span id="mobile-theme-icon" class="theme-icon">⏾</span>
-                </button>
-            </div>
-        </div>
-    </aside>
 
     <!-- Contenu Principal -->
     <main class="hero">
@@ -81,9 +44,7 @@
                 <span id="typewriter"></span><span class="cursor">|</span>
             </h1>
             <h2 class="sub-greeting">
-                <span id="intro-text" data-fr="Je m'appelle" data-en="My name is">Je m'appelle</span>
-                <span class="highlight-name">Éléa</span>
-                <span class="sparkle-symbol">˖᯽ ݁˖</span>
+                <span id="intro-text" data-fr="Je m'appelle" data-en="My name is">Je m'appelle</span> <span class="highlight-name">Éléa</span> <span class="sparkle-symbol">˖᯽ ݁˖</span>
             </h2>
             
             <p class="description" id="hero-desc" data-fr="Designer et créatrice curieuse, j’aime toucher à tout, explorer de nouvelles idées et créer au gré de mes envies." data-en="Curious designer and builder, I love trying new things, exploring fresh ideas, and creating whatever sparks my imagination.">
@@ -100,6 +61,7 @@
         <!-- Zone Image Interactive -->
         <div class="hero-image">
             <div class="interactive-container">
+                <!-- Image chargée depuis le dossier src -->
                 <img src="src/elea_travail.png" alt="Éléa au travail" id="heroImg">
 
                 <!-- Hotspots avec traduction FR/EN -->
@@ -188,26 +150,16 @@
 
         // --- 2. Éléments DOM & Traductions ---
         const langToggleBtn = document.getElementById('lang-toggle');
-        const mobileLangToggleBtn = document.getElementById('mobile-lang-toggle');
         const langFr = document.getElementById('lang-fr');
         const langEn = document.getElementById('lang-en');
-        const mobileLangFr = document.getElementById('mobile-lang-fr');
-        const mobileLangEn = document.getElementById('mobile-lang-en');
-
         const themeToggleBtn = document.getElementById('theme-toggle');
-        const mobileThemeToggleBtn = document.getElementById('mobile-theme-toggle');
-        const mobileThemeIcon = document.getElementById('mobile-theme-icon');
-
         const heroImg = document.getElementById('heroImg');
         const translatableElements = document.querySelectorAll('[data-fr]');
 
-        const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
-        const mobileDrawer = document.getElementById('mobile-drawer');
-
         // --- 3. Fonctions d'application de la Langue ---
         function applyLanguage(lang) {
-            [langEn, mobileLangEn].forEach(el => el && el.classList.toggle('active', lang === 'en'));
-            [langFr, mobileLangFr].forEach(el => el && el.classList.toggle('active', lang === 'fr'));
+            langEn.classList.toggle('active', lang === 'en');
+            langFr.classList.toggle('active', lang === 'fr');
 
             translatableElements.forEach(el => {
                 const targetText = el.getAttribute(`data-${lang}`);
@@ -217,80 +169,38 @@
             });
         }
 
-        // --- 4. Fonctions d'application du Thème ---
+        // --- 4. Fonctions d'application du Thème (chemins src mis à jour) ---
         function applyTheme(theme) {
             if (theme === 'dark') {
                 document.body.classList.add('dark-mode');
                 themeToggleBtn.textContent = '☀︎';
-                if (mobileThemeIcon) mobileThemeIcon.textContent = '☀︎';
                 if (heroImg) heroImg.src = 'src/elea_travail_black.png';
             } else {
                 document.body.classList.remove('dark-mode');
                 themeToggleBtn.textContent = '⏾';
-                if (mobileThemeIcon) mobileThemeIcon.textContent = '⏾';
                 if (heroImg) heroImg.src = 'src/elea_travail.png';
             }
         }
 
-        // --- 5. Dépliant Mobile ---
-        function setMobileMenu(open) {
-            mobileMenuBtn.classList.toggle('open', open);
-            mobileDrawer.classList.toggle('open', open);
-            mobileMenuBtn.setAttribute('aria-expanded', String(open));
-            mobileDrawer.setAttribute('aria-hidden', String(!open));
-        }
-
-        mobileMenuBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const isOpen = !mobileDrawer.classList.contains('open');
-            setMobileMenu(isOpen);
-        });
-
-        document.addEventListener('click', (e) => {
-            if (mobileDrawer.classList.contains('open') &&
-                !mobileDrawer.contains(e.target) &&
-                !mobileMenuBtn.contains(e.target)) {
-                setMobileMenu(false);
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && mobileDrawer.classList.contains('open')) {
-                setMobileMenu(false);
-            }
-        });
-
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 900 && mobileDrawer.classList.contains('open')) {
-                setMobileMenu(false);
-            }
-        });
-
-        // --- 6. Chargement Initial ---
+        // --- 5. Chargement Initial ---
         let currentLang = localStorage.getItem('site_lang') || 'fr';
         let currentTheme = localStorage.getItem('site_theme') || 'light';
 
         applyLanguage(currentLang);
         applyTheme(currentTheme);
 
-        // --- 7. Événements au clic ---
-        function handleLangSwitch() {
+        // --- 6. Événements au clic ---
+        langToggleBtn.addEventListener('click', () => {
             currentLang = currentLang === 'fr' ? 'en' : 'fr';
             localStorage.setItem('site_lang', currentLang);
             applyLanguage(currentLang);
-        }
+        });
 
-        function handleThemeSwitch() {
+        themeToggleBtn.addEventListener('click', () => {
             currentTheme = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
             localStorage.setItem('site_theme', currentTheme);
             applyTheme(currentTheme);
-        }
-
-        langToggleBtn.addEventListener('click', handleLangSwitch);
-        mobileLangToggleBtn.addEventListener('click', handleLangSwitch);
-
-        themeToggleBtn.addEventListener('click', handleThemeSwitch);
-        mobileThemeToggleBtn.addEventListener('click', handleThemeSwitch);
+        });
     </script>
 </body>
 </html>
