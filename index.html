@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="icon" type="image/png" href="/test18-11/src/favicon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Éléa</title>
-
+    <link rel="icon" type="image/png" href="src/favicon.png">
     <!-- Import des polices Google Fonts : Figtree & Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +21,8 @@
             </svg>
         </a>
 
-        <nav class="nav-links">
+        <!-- Navigation & contrôles (Desktop) -->
+        <nav class="nav-links" aria-label="Navigation principale">
             <a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a>
             <span>•</span>
             <a href="presentation.html" data-fr="Présentation" data-en="About">Présentation</a>
@@ -36,7 +36,53 @@
             </button>
             <button id="theme-toggle" class="control-btn theme-icon" aria-label="Changer de thème">⏾</button>
         </div>
+
+        <!-- Bouton dépliant mobile (regroupe Présentation, Contact, Langue, Couleur/Thème) -->
+        <button
+            id="mobile-drawer-toggle"
+            class="mobile-drawer-btn"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false"
+            aria-controls="mobile-drawer"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </header>
+
+    <!-- Dépliant mobile -->
+    <aside id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+        <div class="mobile-drawer-panel">
+            <div class="mobile-drawer-header">
+                <span class="mobile-drawer-title" data-fr="Menu" data-en="Menu">Menu</span>
+                <button id="mobile-drawer-close" class="mobile-close-btn" aria-label="Fermer le menu">✕</button>
+            </div>
+
+            <nav class="mobile-drawer-links" aria-label="Navigation mobile">
+                <a href="presentation.html" class="mobile-nav-item" data-fr="Présentation" data-en="About">Présentation</a>
+                <a href="contact.html" class="mobile-nav-item" data-fr="Contact" data-en="Contact">Contact</a>
+            </nav>
+
+            <div class="mobile-drawer-divider"></div>
+
+            <div class="mobile-drawer-actions">
+                <button id="mobile-lang-toggle" class="mobile-action-btn" aria-label="Changer de langue">
+                    <span data-fr="Langue" data-en="Language">Langue</span>
+                    <span class="mobile-lang-badge">
+                        <span id="mobile-lang-fr" class="lang-option active">FR</span>
+                        <span class="lang-divider">|</span>
+                        <span id="mobile-lang-en" class="lang-option">EN</span>
+                    </span>
+                </button>
+
+                <button id="mobile-theme-toggle" class="mobile-action-btn" aria-label="Changer de couleur et thème">
+                    <span data-fr="Couleur / Thème" data-en="Color / Theme">Couleur / Thème</span>
+                    <span id="mobile-theme-icon" class="theme-icon">⏾</span>
+                </button>
+            </div>
+        </div>
+    </aside>
 
     <!-- Contenu Principal -->
     <main class="hero">
@@ -47,7 +93,7 @@
             <h2 class="sub-greeting">
                 <span id="intro-text" data-fr="Je m'appelle" data-en="My name is">Je m'appelle</span> <span class="highlight-name">Éléa</span> <span class="sparkle-symbol">˖᯽ ݁˖</span>
             </h2>
-            
+
             <p class="description" id="hero-desc" data-fr="Designer et créatrice curieuse, j’aime toucher à tout, explorer de nouvelles idées et créer au gré de mes envies." data-en="Curious designer and builder, I love trying new things, exploring fresh ideas, and creating whatever sparks my imagination.">
                 Designer et créatrice curieuse, j’aime toucher à tout, explorer de nouvelles idées et créer au gré de mes envies.
             </p>
@@ -62,10 +108,8 @@
         <!-- Zone Image Interactive -->
         <div class="hero-image">
             <div class="interactive-container">
-                <!-- Image chargée depuis le dossier src -->
                 <img src="src/elea_travail.png" alt="Éléa au travail" id="heroImg">
 
-                <!-- Hotspots avec traduction FR/EN -->
                 <div class="hotspot" style="top: 10%; left: 30%; width: 45%; height: 50%;">
                     <div class="tooltip tooltip-top">
                         <span class="tooltip-arrow"></span>
@@ -151,16 +195,33 @@
 
         // --- 2. Éléments DOM & Traductions ---
         const langToggleBtn = document.getElementById('lang-toggle');
+        const mobileLangToggleBtn = document.getElementById('mobile-lang-toggle');
         const langFr = document.getElementById('lang-fr');
         const langEn = document.getElementById('lang-en');
+        const mobileLangFr = document.getElementById('mobile-lang-fr');
+        const mobileLangEn = document.getElementById('mobile-lang-en');
+
         const themeToggleBtn = document.getElementById('theme-toggle');
+        const mobileThemeToggleBtn = document.getElementById('mobile-theme-toggle');
+        const mobileThemeIcon = document.getElementById('mobile-theme-icon');
+
         const heroImg = document.getElementById('heroImg');
         const translatableElements = document.querySelectorAll('[data-fr]');
 
+        const drawerToggleBtn = document.getElementById('mobile-drawer-toggle');
+        const drawerCloseBtn = document.getElementById('mobile-drawer-close');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+
         // --- 3. Fonctions d'application de la Langue ---
         function applyLanguage(lang) {
-            langEn.classList.toggle('active', lang === 'en');
-            langFr.classList.toggle('active', lang === 'fr');
+            document.documentElement.lang = lang;
+
+            [langFr, mobileLangFr].forEach(el => {
+                if (el) el.classList.toggle('active', lang === 'fr');
+            });
+            [langEn, mobileLangEn].forEach(el => {
+                if (el) el.classList.toggle('active', lang === 'en');
+            });
 
             translatableElements.forEach(el => {
                 const targetText = el.getAttribute(`data-${lang}`);
@@ -170,38 +231,73 @@
             });
         }
 
-        // --- 4. Fonctions d'application du Thème (chemins src mis à jour) ---
+        // --- 4. Fonctions d'application du Thème ---
         function applyTheme(theme) {
             if (theme === 'dark') {
                 document.body.classList.add('dark-mode');
                 themeToggleBtn.textContent = '☀︎';
+                if (mobileThemeIcon) mobileThemeIcon.textContent = '☀︎';
                 if (heroImg) heroImg.src = 'src/elea_travail_black.png';
             } else {
                 document.body.classList.remove('dark-mode');
                 themeToggleBtn.textContent = '⏾';
+                if (mobileThemeIcon) mobileThemeIcon.textContent = '⏾';
                 if (heroImg) heroImg.src = 'src/elea_travail.png';
             }
         }
 
-        // --- 5. Chargement Initial ---
+        // --- 5. Dépliant mobile ---
+        function setDrawerOpen(isOpen) {
+            mobileDrawer.classList.toggle('open', isOpen);
+            mobileDrawer.setAttribute('aria-hidden', String(!isOpen));
+            drawerToggleBtn.setAttribute('aria-expanded', String(isOpen));
+            document.body.classList.toggle('drawer-open', isOpen);
+        }
+
+        drawerToggleBtn.addEventListener('click', () => {
+            const isOpen = !mobileDrawer.classList.contains('open');
+            setDrawerOpen(isOpen);
+        });
+
+        drawerCloseBtn.addEventListener('click', () => setDrawerOpen(false));
+
+        mobileDrawer.addEventListener('click', (e) => {
+            if (e.target === mobileDrawer) {
+                setDrawerOpen(false);
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileDrawer.classList.contains('open')) {
+                setDrawerOpen(false);
+            }
+        });
+
+        // --- 6. Chargement Initial ---
         let currentLang = localStorage.getItem('site_lang') || 'fr';
         let currentTheme = localStorage.getItem('site_theme') || 'light';
 
         applyLanguage(currentLang);
         applyTheme(currentTheme);
 
-        // --- 6. Événements au clic ---
-        langToggleBtn.addEventListener('click', () => {
+        // --- 7. Événements au clic ---
+        function handleLangSwitch() {
             currentLang = currentLang === 'fr' ? 'en' : 'fr';
             localStorage.setItem('site_lang', currentLang);
             applyLanguage(currentLang);
-        });
+        }
 
-        themeToggleBtn.addEventListener('click', () => {
+        function handleThemeSwitch() {
             currentTheme = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
             localStorage.setItem('site_theme', currentTheme);
             applyTheme(currentTheme);
-        });
+        }
+
+        langToggleBtn.addEventListener('click', handleLangSwitch);
+        if (mobileLangToggleBtn) mobileLangToggleBtn.addEventListener('click', handleLangSwitch);
+
+        themeToggleBtn.addEventListener('click', handleThemeSwitch);
+        if (mobileThemeToggleBtn) mobileThemeToggleBtn.addEventListener('click', handleThemeSwitch);
     </script>
 </body>
 </html>
