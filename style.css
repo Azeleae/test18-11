@@ -164,45 +164,11 @@ body {
     color: var(--accent-color);
 }
 
-/* Bouton & Dépliant Mobile (masqués sur desktop) */
-.mobile-menu-btn {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    width: 42px;
-    height: 42px;
-    background: var(--drawer-item-bg);
-    border: 1px solid var(--drawer-border);
-    border-radius: 12px;
-    cursor: pointer;
-    color: var(--nav-link-color);
-    transition: transform 0.2s ease, background-color 0.3s ease;
-}
-
-.burger-line {
-    width: 20px;
-    height: 2px;
-    background-color: var(--nav-link-color);
-    border-radius: 2px;
-    transition: transform 0.25s ease, opacity 0.25s ease, background-color 0.3s ease;
-}
-
-.mobile-menu-btn.open .burger-line:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-}
-
-.mobile-menu-btn.open .burger-line:nth-child(2) {
-    opacity: 0;
-}
-
-.mobile-menu-btn.open .burger-line:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
-}
-
+/* Bouton & Dépliant Mobile : strictement cachés sur ordinateur */
+.mobile-menu-btn,
 .mobile-drawer {
-    display: none;
+    display: none !important;
+    visibility: hidden;
 }
 
 /* Hero (Accueil) */
@@ -252,12 +218,13 @@ body {
     overflow-wrap: break-word;
 }
 
-/* --- POLICE BOOTZYTM & ESPACEMENT --- */
+/* --- POLICE BOOTZYTM SUR "ÉLÉA" --- */
+.sub-greeting .highlight-name,
 .highlight-name {
-    font-family: 'BootzyTM', 'Figtree', cursive, sans-serif;
+    font-family: 'BootzyTM', sans-serif !important;
     color: var(--accent-color);
     letter-spacing: 0.05em;
-    font-weight: normal;
+    font-weight: 400;
 }
 
 .sparkle-symbol {
@@ -454,12 +421,45 @@ body {
     }
 
     .mobile-menu-btn {
-        display: flex;
+        display: flex !important;
+        visibility: visible;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        width: 42px;
+        height: 42px;
+        background: var(--drawer-item-bg);
+        border: 1px solid var(--drawer-border);
+        border-radius: 12px;
+        cursor: pointer;
+        color: var(--nav-link-color);
+    }
+
+    .burger-line {
+        width: 20px;
+        height: 2px;
+        background-color: var(--nav-link-color);
+        border-radius: 2px;
+        transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .mobile-menu-btn.open .burger-line:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .mobile-menu-btn.open .burger-line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu-btn.open .burger-line:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
     }
 
     /* Dépliant regroupant Présentation, Contact, Langue & Couleur */
     .mobile-drawer {
-        display: grid;
+        display: grid !important;
+        visibility: visible;
         grid-template-rows: 0fr;
         width: 100%;
         background-color: var(--drawer-bg);
@@ -503,12 +503,6 @@ body {
         padding: 12px 16px;
         border-radius: 14px;
         background-color: var(--drawer-item-bg);
-        transition: transform 0.2s ease, color 0.2s ease;
-    }
-
-    .mobile-drawer-link:active {
-        transform: scale(0.99);
-        color: var(--accent-color);
     }
 
     .mobile-drawer-divider {
@@ -565,10 +559,11 @@ body {
         line-height: 1.3;
     }
 
+    .sub-greeting .highlight-name,
     .highlight-name {
-        font-family: 'BootzyTM', 'Figtree', cursive, sans-serif;
+        font-family: 'BootzyTM', sans-serif !important;
         letter-spacing: 0.04em;
-        font-weight: normal;
+        font-weight: 400;
     }
 
     .sparkle-symbol {
