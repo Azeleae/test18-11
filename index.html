@@ -21,14 +21,15 @@
             </svg>
         </a>
 
-        <!-- ================= PARTIE ORDINATEUR (DESKTOP) ================= -->
-        <nav class="nav-links desktop-nav" aria-label="Navigation principale">
+        <!-- Navigation Desktop -->
+        <nav class="nav-links" aria-label="Navigation principale">
             <a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a>
             <span>•</span>
             <a href="presentation.html" data-fr="Présentation" data-en="About">Présentation</a>
         </nav>
 
-        <div class="nav-controls desktop-controls">
+        <!-- Contrôles Desktop -->
+        <div class="nav-controls">
             <button id="lang-toggle" class="control-btn" aria-label="Changer de langue">
                 <span id="lang-fr" class="lang-option active">FR</span>
                 <span class="lang-divider">|</span>
@@ -37,64 +38,41 @@
             <button id="theme-toggle" class="control-btn theme-icon" aria-label="Changer de thème">⏾</button>
         </div>
 
-        <!-- ================= PARTIE TÉLÉPHONE (MOBILE DÉPLIANT) ================= -->
-        <button
-            id="mobile-menu-toggle"
-            class="mobile-menu-btn"
-            aria-label="Ouvrir le menu"
-            aria-expanded="false"
-            aria-controls="mobile-drawer"
-        >
-            <span data-fr="Menu" data-en="Menu">Menu</span>
-            <span class="chevron" aria-hidden="true">▾</span>
+        <!-- Bouton Dépliant Mobile (regroupe Présentation, Contact, Langue & Couleur) -->
+        <button id="mobile-menu-toggle" class="mobile-menu-btn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-drawer">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
         </button>
+    </header>
 
-        <div id="mobile-drawer" class="mobile-drawer" hidden>
-            <nav class="drawer-links" aria-label="Navigation mobile">
-                <a href="presentation.html" class="drawer-item">
-                    <span class="drawer-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/></svg>
-                    </span>
-                    <span data-fr="Présentation" data-en="About">Présentation</span>
-                </a>
-
-                <a href="contact.html" class="drawer-item">
-                    <span class="drawer-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                    </span>
-                    <span data-fr="Contact" data-en="Contact">Contact</span>
-                </a>
+    <!-- Dépliant Mobile -->
+    <aside id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+        <div class="mobile-drawer-inner">
+            <nav class="mobile-nav-links" aria-label="Navigation mobile">
+                <a href="presentation.html" class="mobile-drawer-link" data-fr="Présentation" data-en="About">Présentation</a>
+                <a href="contact.html" class="mobile-drawer-link" data-fr="Contact" data-en="Contact">Contact</a>
             </nav>
 
-            <div class="drawer-divider"></div>
+            <div class="mobile-drawer-divider"></div>
 
-            <div class="drawer-controls">
-                <button id="lang-toggle-mobile" class="control-btn drawer-action" aria-label="Changer de langue">
-                    <span class="drawer-label-group">
-                        <span class="drawer-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm6.93 6h-2.95a15.65 15.65 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.93 8zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2H4.26zm.81 2h2.95c.32 1.25.78 2.45 1.38 3.56A8.03 8.03 0 0 1 5.07 16zm2.95-8H5.07a8.03 8.03 0 0 1 4.33-3.56A15.65 15.65 0 0 0 8.02 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2s.07-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/></svg>
-                        </span>
-                        <span data-fr="Langue" data-en="Language">Langue</span>
-                    </span>
-                    <span>
-                        <span id="lang-fr-mobile" class="lang-option active">FR</span>
+            <div class="mobile-drawer-actions">
+                <button id="mobile-lang-toggle" class="control-btn mobile-action-btn" aria-label="Changer de langue">
+                    <span class="mobile-action-label" data-fr="Langue" data-en="Language">Langue</span>
+                    <span class="mobile-pill-group">
+                        <span id="mobile-lang-fr" class="lang-option active">FR</span>
                         <span class="lang-divider">|</span>
-                        <span id="lang-en-mobile" class="lang-option">EN</span>
+                        <span id="mobile-lang-en" class="lang-option">EN</span>
                     </span>
                 </button>
 
-                <button id="theme-toggle-mobile" class="control-btn drawer-action" aria-label="Changer de couleur">
-                    <span class="drawer-label-group">
-                        <span class="drawer-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 0 0 0 18c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
-                        </span>
-                        <span data-fr="Couleur" data-en="Color">Couleur</span>
-                    </span>
-                    <span id="theme-icon-mobile" class="theme-icon">⏾</span>
+                <button id="mobile-theme-toggle" class="control-btn mobile-action-btn" aria-label="Changer de thème">
+                    <span class="mobile-action-label" data-fr="Couleur" data-en="Theme">Couleur</span>
+                    <span id="mobile-theme-icon" class="theme-icon">⏾</span>
                 </button>
             </div>
         </div>
-    </header>
+    </aside>
 
     <!-- Contenu Principal -->
     <main class="hero">
@@ -103,9 +81,11 @@
                 <span id="typewriter"></span><span class="cursor">|</span>
             </h1>
             <h2 class="sub-greeting">
-                <span id="intro-text" data-fr="Je m'appelle" data-en="My name is">Je m'appelle</span> <span class="highlight-name">Éléa</span> <span class="sparkle-symbol">˖᯽ ݁˖</span>
+                <span id="intro-text" data-fr="Je m'appelle" data-en="My name is">Je m'appelle</span>
+                <span class="highlight-name">Éléa</span>
+                <span class="sparkle-symbol">˖᯽ ݁˖</span>
             </h2>
-
+            
             <p class="description" id="hero-desc" data-fr="Designer et créatrice curieuse, j’aime toucher à tout, explorer de nouvelles idées et créer au gré de mes envies." data-en="Curious designer and builder, I love trying new things, exploring fresh ideas, and creating whatever sparks my imagination.">
                 Designer et créatrice curieuse, j’aime toucher à tout, explorer de nouvelles idées et créer au gré de mes envies.
             </p>
@@ -122,6 +102,7 @@
             <div class="interactive-container">
                 <img src="src/elea_travail.png" alt="Éléa au travail" id="heroImg">
 
+                <!-- Hotspots avec traduction FR/EN -->
                 <div class="hotspot" style="top: 10%; left: 30%; width: 45%; height: 50%;">
                     <div class="tooltip tooltip-top">
                         <span class="tooltip-arrow"></span>
@@ -205,31 +186,28 @@
         }
         document.addEventListener("DOMContentLoaded", type);
 
-        // --- 2. Éléments DOM ---
+        // --- 2. Éléments DOM & Traductions ---
         const langToggleBtn = document.getElementById('lang-toggle');
-        const langToggleMobileBtn = document.getElementById('lang-toggle-mobile');
+        const mobileLangToggleBtn = document.getElementById('mobile-lang-toggle');
         const langFr = document.getElementById('lang-fr');
         const langEn = document.getElementById('lang-en');
-        const langFrMobile = document.getElementById('lang-fr-mobile');
-        const langEnMobile = document.getElementById('lang-en-mobile');
+        const mobileLangFr = document.getElementById('mobile-lang-fr');
+        const mobileLangEn = document.getElementById('mobile-lang-en');
 
         const themeToggleBtn = document.getElementById('theme-toggle');
-        const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
-        const themeIconMobile = document.getElementById('theme-icon-mobile');
-
-        const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
-        const mobileDrawer = document.getElementById('mobile-drawer');
+        const mobileThemeToggleBtn = document.getElementById('mobile-theme-toggle');
+        const mobileThemeIcon = document.getElementById('mobile-theme-icon');
 
         const heroImg = document.getElementById('heroImg');
         const translatableElements = document.querySelectorAll('[data-fr]');
 
-        // --- 3. Langue ---
+        const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+
+        // --- 3. Fonctions d'application de la Langue ---
         function applyLanguage(lang) {
-            document.documentElement.lang = lang;
-            if (langEn) langEn.classList.toggle('active', lang === 'en');
-            if (langFr) langFr.classList.toggle('active', lang === 'fr');
-            if (langEnMobile) langEnMobile.classList.toggle('active', lang === 'en');
-            if (langFrMobile) langFrMobile.classList.toggle('active', lang === 'fr');
+            [langEn, mobileLangEn].forEach(el => el && el.classList.toggle('active', lang === 'en'));
+            [langFr, mobileLangFr].forEach(el => el && el.classList.toggle('active', lang === 'fr'));
 
             translatableElements.forEach(el => {
                 const targetText = el.getAttribute(`data-${lang}`);
@@ -239,67 +217,80 @@
             });
         }
 
-        // --- 4. Thème / Couleur ---
+        // --- 4. Fonctions d'application du Thème ---
         function applyTheme(theme) {
-            const isDark = theme === 'dark';
-            document.body.classList.toggle('dark-mode', isDark);
-            const icon = isDark ? '☀︎' : '⏾';
-            if (themeToggleBtn) themeToggleBtn.textContent = icon;
-            if (themeIconMobile) themeIconMobile.textContent = icon;
-            if (heroImg) heroImg.src = isDark ? 'src/elea_travail_black.png' : 'src/elea_travail.png';
+            if (theme === 'dark') {
+                document.body.classList.add('dark-mode');
+                themeToggleBtn.textContent = '☀︎';
+                if (mobileThemeIcon) mobileThemeIcon.textContent = '☀︎';
+                if (heroImg) heroImg.src = 'src/elea_travail_black.png';
+            } else {
+                document.body.classList.remove('dark-mode');
+                themeToggleBtn.textContent = '⏾';
+                if (mobileThemeIcon) mobileThemeIcon.textContent = '⏾';
+                if (heroImg) heroImg.src = 'src/elea_travail.png';
+            }
         }
 
         // --- 5. Dépliant Mobile ---
-        function setDrawerOpen(open) {
-            if (!mobileMenuBtn || !mobileDrawer) return;
-            mobileMenuBtn.setAttribute('aria-expanded', String(open));
+        function setMobileMenu(open) {
             mobileMenuBtn.classList.toggle('open', open);
-            mobileDrawer.hidden = !open;
+            mobileDrawer.classList.toggle('open', open);
+            mobileMenuBtn.setAttribute('aria-expanded', String(open));
+            mobileDrawer.setAttribute('aria-hidden', String(!open));
         }
 
-        if (mobileMenuBtn && mobileDrawer) {
-            mobileMenuBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const isOpen = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
-                setDrawerOpen(!isOpen);
-            });
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = !mobileDrawer.classList.contains('open');
+            setMobileMenu(isOpen);
+        });
 
-            document.addEventListener('click', (e) => {
-                if (!mobileDrawer.hidden && !mobileDrawer.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                    setDrawerOpen(false);
-                }
-            });
+        document.addEventListener('click', (e) => {
+            if (mobileDrawer.classList.contains('open') &&
+                !mobileDrawer.contains(e.target) &&
+                !mobileMenuBtn.contains(e.target)) {
+                setMobileMenu(false);
+            }
+        });
 
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && !mobileDrawer.hidden) {
-                    setDrawerOpen(false);
-                }
-            });
-        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileDrawer.classList.contains('open')) {
+                setMobileMenu(false);
+            }
+        });
 
-        // --- 6. Chargement Initial & Événements ---
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 900 && mobileDrawer.classList.contains('open')) {
+                setMobileMenu(false);
+            }
+        });
+
+        // --- 6. Chargement Initial ---
         let currentLang = localStorage.getItem('site_lang') || 'fr';
         let currentTheme = localStorage.getItem('site_theme') || 'light';
 
         applyLanguage(currentLang);
         applyTheme(currentTheme);
 
-        function toggleLanguage() {
+        // --- 7. Événements au clic ---
+        function handleLangSwitch() {
             currentLang = currentLang === 'fr' ? 'en' : 'fr';
             localStorage.setItem('site_lang', currentLang);
             applyLanguage(currentLang);
         }
 
-        function toggleTheme() {
+        function handleThemeSwitch() {
             currentTheme = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
             localStorage.setItem('site_theme', currentTheme);
             applyTheme(currentTheme);
         }
 
-        if (langToggleBtn) langToggleBtn.addEventListener('click', toggleLanguage);
-        if (langToggleMobileBtn) langToggleMobileBtn.addEventListener('click', toggleLanguage);
-        if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
-        if (themeToggleMobileBtn) themeToggleMobileBtn.addEventListener('click', toggleTheme);
+        langToggleBtn.addEventListener('click', handleLangSwitch);
+        mobileLangToggleBtn.addEventListener('click', handleLangSwitch);
+
+        themeToggleBtn.addEventListener('click', handleThemeSwitch);
+        mobileThemeToggleBtn.addEventListener('click', handleThemeSwitch);
     </script>
 </body>
 </html>
