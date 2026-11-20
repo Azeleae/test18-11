@@ -1,7 +1,8 @@
-/* Déclaration de la police locale Bootzy TM liée au dossier src/fonts/BootzyTM.ttf */
+/* Déclaration de la police locale Bootzy TM */
 @font-face {
     font-family: 'Bootzy TM';
-    src: url('src/fonts/BootzyTM.ttf') format('truetype');
+    src: url('fonts/BootzyTM.ttf') format('truetype'),
+         url('src/fonts/BootzyTM.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -217,10 +218,10 @@ body {
     overflow-wrap: break-word;
 }
 
-/* --- POLICE BOOTZY TM & PROTECTION FAUX GRAS MOBILE --- */
+/* --- POLICE BOOTZY TM --- */
 .highlight-name {
-    font-family: 'Bootzy TM', cursive, sans-serif;
-    font-weight: normal;
+    font-family: 'Bootzy TM', cursive, sans-serif !important;
+    font-weight: normal !important;
     font-synthesis: none;
     color: var(--accent-color);
     letter-spacing: 0.05em;
@@ -543,7 +544,6 @@ body {
         font-size: 0.95rem;
     }
 
-    /* Empêche les bulles de l'image de déborder à droite/gauche sur téléphone */
     .tooltip {
         white-space: normal;
         max-width: 170px;
