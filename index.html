@@ -21,15 +21,14 @@
             </svg>
         </a>
 
-        <!-- Navigation Desktop -->
-        <nav class="nav-links" aria-label="Navigation principale">
+        <!-- ================= PARTIE ORDINATEUR (DESKTOP) ================= -->
+        <nav class="nav-links desktop-nav" aria-label="Navigation principale">
             <a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a>
             <span>•</span>
             <a href="presentation.html" data-fr="Présentation" data-en="About">Présentation</a>
         </nav>
 
-        <!-- Contrôles Desktop -->
-        <div class="nav-controls desktop-only">
+        <div class="nav-controls desktop-controls">
             <button id="lang-toggle" class="control-btn" aria-label="Changer de langue">
                 <span id="lang-fr" class="lang-option active">FR</span>
                 <span class="lang-divider">|</span>
@@ -38,7 +37,7 @@
             <button id="theme-toggle" class="control-btn theme-icon" aria-label="Changer de thème">⏾</button>
         </div>
 
-        <!-- Bouton Dépliant Mobile (regroupe Présentation, Contact, Langue, Couleur) -->
+        <!-- ================= PARTIE TÉLÉPHONE (MOBILE DÉPLIANT) ================= -->
         <button
             id="mobile-menu-toggle"
             class="mobile-menu-btn"
@@ -50,7 +49,6 @@
             <span class="chevron" aria-hidden="true">▾</span>
         </button>
 
-        <!-- Panneau Dépliant Mobile -->
         <div id="mobile-drawer" class="mobile-drawer" hidden>
             <nav class="drawer-links" aria-label="Navigation mobile">
                 <a href="presentation.html" class="drawer-item">
